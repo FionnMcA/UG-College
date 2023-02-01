@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <script>
+ 
+    var rannumbers = []
+ 
+        function handleClick() {
+ 
+            var biggest = 0;
+            var smallest = 10000;
+            var sum = 0;
+            var list = "";
+            var avg = 0;
+        
+                for (var i=0; i<100; i++) {
+        
+                var num = Math.floor( Math.random()*999) + 1;
+                rannumbers.push(num);
+                
+                    if (rannumbers[i]>biggest)
+        
+                    biggest = rannumbers[i];
+                        
+                        if (rannumbers[i]<smallest)
+                    
+                            smallest = rannumbers[i];
+                            sum += rannumbers[i];
+                            list += rannumbers[i];
+                            avg = sum/100;
+                            
+                                if (i<99)
+                            
+                                list += ", ";
+                            
+                                else
+                            
+                                list += ".";
+                            
+                    }
+                            
+                    var res = "Of 100 random numbers between 1 and 1000. <br> The sum was "+sum;
+                    res += "<br> the average was " +avg;                
+                    res += "<br> and the largest was "+biggest;
+                    res += "<br> and the smallest is "+smallest;
+                    var p = document.getElementById('Paragraph1');
+                    p.innerHTML = res;
+                    var j = document.getElementById('Paragraph2');
+                    j.innerHTML = "<br>" + list;
+        }
+    </script>
+        </head>
+            <body onload="handleClick()">
+            <p1 id='Paragraph1'></p1>
+            <p2 id='Paragraph2'></p2>
+    </body>
+</html>

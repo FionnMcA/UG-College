@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script>
+ 
+        function updateOutput() {
+        var text = document.getElementById("txtUserInput").value;
+        var numWords = 0;
+    
+        for (var i = 0; i < text.length; i++) {
+        var currentCharacter = text[i];
+        
+        if (currentCharacter == " ") {
+            numWords += 1;
+        }
+    } 
+    
+        numWords += 1;
+        document.getElementById('myParagraph').innerHTML = "Word count " +numWords;
+        var numChar = text.length - numWords +1 ;
+    
+        document.getElementById("myParagraph1").innerHTML = "Character count " + numChar;
+    
+    }
+ </script>
+</head>
+<body>
+    <p id="myParagraph">Word count 0</p>
+    <p id="myParagraph1">Character count 0</p>
+    <textarea  id='txtUserInput' onkeyup="updateOutput();" value=""></textarea><br>
+ </body>
+</html>

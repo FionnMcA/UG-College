@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+    <script>
+    
+        function MoveThePicture() {
+        var x = Math.random()*600;
+        var y = Math.random()*600;
+    
+        document.getElementById("Picture").style.left = x+"px"; 
+        document.getElementById("Picture").style.top = y +"px"; 
+    
+    }
+ </script>
+ </head>
+    <body onload="MoveThePicture();">
+        <div onClick='MoveThePicture();' id='Picture' style='position:absolute; left:600px; top:300px'>
+        <img src='https://helios-i.mashable.com/imagery/articles/02FIkpCwCbENUDIhgfxGGR0/images-1.fill.size_2000x1139.v1619016336.jpg'style="height: 150px; width: 225px">
+</div>
+</body>
