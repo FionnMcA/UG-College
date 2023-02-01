@@ -1,0 +1,27 @@
+#table{
+
+        border-collapse: collapse;
+ 
+}
+th {
+    background-color: rgb(2, 83, 235);
+    border: 2px solid orange;
+    width: 50px;
+    height: 25px;
+  }
+
+  td {
+    background-color: rgb(0, 174, 255);
+    border: 2px solid orange;
+    width: 50px;
+    height: 25px;
+  
+  }  
+
+  .BlankSpace {
+    background-color: rgb(31, 224, 166);
+    border: 2px solid orange;
+    width: 50px;
+    height: 25px;
+  
+  }

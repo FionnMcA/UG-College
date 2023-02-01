@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="CalendarStyling.css">
+    <script>
+        var NumOfDays = 0; FirstDayOfMonth = 0; Days = []; DayCounter = 1; BlankSpaces = 0;
+        var Rows = ['Row1', 'Row2', 'Row3', 'Row4', 'Row5', 'Row6']
+        
+    function makeCalendar() {
+        UserInput();
+        FirstRow();
+        MidRows();
+        LastRow();
+    }
+
+    function UserInput() {
+        NumOfDays = document.getElementById('NumDays').value;
+        if (NumOfDays < 28 || NumOfDays > 31 || isNaN(NumOfDays)) {
+            NumOfDays = 0;
+            FirstDayOfMonth = 0;
+            UserInput();
+        }
+        else {
+            FirstDayOfMonth = document.getElementById('firstday').value;
+            if (FirstDayOfMonth < 0 || FirstDayOfMonth > 6 || isNaN(FirstDayOfMonth)) {
+                NumOfDays = 0;
+                FirstDayOfMonth = 0;
+                UserInput();
+            }
+            else {
+                for (i = 1; i <= NumOfDays; i++) {
+                    Days.push(i);
+                }
+            }
+        }
+    }
+
+    function FirstRow() {
+        var Row1 = document.getElementById("Row1");
+        for (i = 0; i < 7; i++) {
+            if (i < FirstDayOfMonth) {
+                Row1.innerHTML +='<td class="BlankSpace"></td>';
+                BlankSpaces++;
+            }
+            else {
+                Row1.innerHTML += '<td>'+DayCounter+'</td>';
+                DayCounter++;
+            }
+        }
+    }
+
+    function MidRows() {
+        var RowCounter = 2;
+        var CellCounter = 0;
+        while (DayCounter <= Days.length) {
+            if (CellCounter < 7) {
+                var CurrentRow = document.getElementById(Rows[RowCounter - 1]);
+                CurrentRow.innerHTML += '<td>' + DayCounter + '</td>';
+                CellCounter++;
+                DayCounter++;
+            }
+            else {
+                RowCounter++;
+                CellCounter = 0;
+            }
+        }
+    }
+
+    function LastRow() {
+        var Total = DayCounter + BlankCounter;
+        for (i = 0; i <= (36 - Total); i++ ) {
+            CurrentRow.innerHTML += '<td class="BlankSpace"></td>';
+        }
+    }
+
+</script>
+</head>
+<body onload="makeCalendar();">
+    <form>
+        <label>Number of Days (between 28-31) <input type="text" name="NumDays" id="NumDays"/></label><br/>
+        <label>What is the first day the month falls on (between 0-6) <input type="text" name="firstday" id="firstday"/></label><br/><br>
+        <input name="generate" type="button" value="Create Calendar!" onclick='makeCalendar();'/>
+    </form>
+    <div>
+    <table id="table">
+        <tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>
+        <tr id="Row1"></tr><tr id="Row2"></tr><tr id="Row3"></tr><tr id="Row4"></tr><tr id="Row5"></tr><tr id="Row6"></tr>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function handleclick(element){
+            var q = 0;
+            var n = 0;
+            var question = document.getElementById("Question").value;
+            if (question === "") {
+            alert("Please enter your question")
+            }
+            else{
+                q = 1;
+            }
+
+            var name = document.getElementById("Name").value;
+            if (name === "") {
+            alert("Please enter your name")
+            }
+            else {
+                n = 1;
+            }
+            
+            var email = document.getElementById("Email").value;
+            if(email.indexOf("@" && ".") !== -1){
+            }
+            else{
+            alert("Your email is invalid, please enter a valid email");
+            }
+            
+            if ( q == 1 && n == 1 && email.indexOf("@" && ".") !== -1) {
+                alert("Thanks for your submission!");
+            }
+            }
+
+        </script>
+
+ <style>
+     .Inputs{
+         background-color:lightgray;
+         color: white;
+     }
+     .Questions{
+         background-color: darkgray;
+         color: white;
+     }
+     .Button{
+         background-color: rgb(46, 46, 46);
+         color: white;
+     }
+     body{
+        background-color: rgb(83, 78, 78);
+        color: white;
+     }
+ </style>
+    </head>
+    <body>
+        <table border="0">
+            <tr><td class="Questions">Question Category</td><td class="Questions"><select class="Inputs" name="listlabel" id="listid">
+            <option value="1">Goods for Sale</option>
+            <option value="2">Complaints</option>
+            <option value="3">Support</option>
+            </select></td></tr>
+            <tr><td class="Questions" >Question</td><td class="Questions"><textarea id="Question" class="Inputs"></textarea></td></tr>
+            <tr><td class="Questions" >Your Name</td><td class="Questions"><input id="Name" class="Inputs" ></input></td></tr>
+            <tr><td class="Questions">Your Email</td><td class="Questions"><input id="Email" class="Inputs"></input></td></tr>
+            <tr><td class="Questions"></td><td class="Questions"><button class="Button" onclick="handleclick();"> Submit </button></td></tr>
+        </table>
+    </body>
+</html>
